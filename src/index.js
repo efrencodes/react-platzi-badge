@@ -48,4 +48,8 @@ const container = document.getElementById('app')
 
 // ReactDOM.render('Qué queremos renderizar', 'Donde queremos renderizar')
 
-ReactDOM.render(<Badge />, container)
+ReactDOM.render(<Badge
+    firstName="Efrén"
+    lastName="Martinez"
+    twitter="efrenmartinezmx"
+/>, container)
