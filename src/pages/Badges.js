@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 class Badges extends React.Component {
     constructor(props) {
         super(props)
+        console.log('1. constructor()');
         this.state = {
             data: [
                 {
@@ -39,7 +40,21 @@ class Badges extends React.Component {
             ]
         }
     }
+
+    componentDidMount() {
+        console.log('3. componentDidMount()');
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log('5. componentDidUpdate()')
+    }
+
+    componentWillUnmount() {
+        console.log('6. componentWillUnmount()');
+    }
+
     render() {
+        console.log('2. render()');
         return (
             <React.Fragment>
                 <div className="Badges">
