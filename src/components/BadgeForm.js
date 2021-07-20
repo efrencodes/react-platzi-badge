@@ -6,7 +6,7 @@ class BadgeForm extends React.Component {
     // this.state = {
     //     firstName: null,
     //     lastName: null,
-    //     jobName: null,
+    //     jobTitle: null,
     //     twitter: null
     // }
     // }
@@ -27,15 +27,15 @@ class BadgeForm extends React.Component {
         console.log('Btn was click')
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault()
-    }
+    // handleSubmit = (e) => {
+    //     e.preventDefault()
+    // }
 
     render() {
         return (
             <React.Fragment>
                 <h1>New Attendant</h1>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.props.onSubmit}>
                     <div className="form-group">
                         <label>First Name</label>
                         <input
@@ -62,8 +62,8 @@ class BadgeForm extends React.Component {
                             onChange={this.props.onChange}
                             className="form-control"
                             type="text"
-                            name="jobName"
-                            value={this.props.formValues.jobName}
+                            name="jobTitle"
+                            value={this.props.formValues.jobTitle}
                         />
                     </div>
                     <div className="form-group">
