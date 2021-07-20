@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import Layout from './Layout'
 import BadgeNew from '../pages/BadgeNew'
+import BadgeEdit from '../pages/BadgeEdit'
 import Badges from '../pages/Badges'
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
                 <Switch>
                     <Route exact path="/" component={Badges} />
                     <Route exact path="/new" component={BadgeNew} />
+                    <Route exact path="/:badgeId/edit" component={BadgeEdit} />
                 </Switch>
             </Layout>
         </BrowserRouter>
