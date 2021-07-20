@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import confLogo from '../images/platziconf-logo.svg'
 import '../styles/BadgeDetails.css'
 import Badge from '../components/Badge'
+import DeleteBadgeModal from '../components/DeleteBadgeModal'
 import api from '../api.js'
-import { Link } from 'react-router-dom'
 
 class BadgeDetails extends React.Component {
     constructor(props) {
@@ -11,6 +12,7 @@ class BadgeDetails extends React.Component {
         this.state = {
             loading: false,
             error: null,
+            modal: false,
             data: {
                 id: '',
                 firstName: '',
@@ -47,6 +49,14 @@ class BadgeDetails extends React.Component {
         } catch (error) {
             this.setState({ loading: false, error: error })
         }
+    }
+
+    onOpenModal = () => {
+        this.setState({ modal: true })
+    }
+
+    onCloseModal = () => {
+        this.setState({ modal: false })
     }
 
     render() {
@@ -92,9 +102,14 @@ class BadgeDetails extends React.Component {
                                     <Link className="btn btn-primary mb-4" to={`/${this.state.data.id}/edit`}>Edit</Link>
                                 </div>
                                 <div>
-                                    <button className="btn btn-danger">
+                                    <button onClick={this.onOpenModal} className="btn btn-danger">
                                         Delete
                                     </button>
+                                    <DeleteBadgeModal
+                                        isOpen={this.state.modal}
+                                        onClose={this.onCloseModal}
+                                        onDelete={this.onDelete}
+                                    />
                                 </div>
                             </div>
                         </div>
